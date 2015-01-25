@@ -1,0 +1,5 @@
+io.protostuff
+io.protostuff.compiler
+io.protostuff.mojo
+io.protostuff.parser
+io.protostuff.runtime
