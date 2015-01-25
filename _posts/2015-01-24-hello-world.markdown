@@ -5,5 +5,5 @@ date:   2015-01-24 19:53:56
 categories: jekyll update
 ---
 
-![Protostuff Logo](/images/protostuff.jpg)
+![Protostuff Logo](/images/protostuff.png)
 
