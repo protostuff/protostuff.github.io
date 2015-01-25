@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0af7d0bc-3aa6-4074-89c7-e5cebcdb5f43" name="Default" comment="Update footer">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/B64Code.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/B64Code.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/ByteString.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/ByteString.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/CustomSchema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/CustomSchema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/EnumLite.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/EnumLite.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Exclude.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Exclude.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/FilterInput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/FilterInput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/FilterOutput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/FilterOutput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/GraphInput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/GraphInput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Input.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/IntSerializer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/IntSerializer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/LinkedBuffer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/LinkedBuffer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Message.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Message.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Morph.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Morph.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/NumberParser.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/NumberParser.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Output.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Output.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Pipe.Schema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Pipe.Schema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Pipe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Pipe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/ProtostuffException.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/ProtostuffException.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Schema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Schema.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/StatefulOutput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/StatefulOutput.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/StreamedStringSerializer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/StreamedStringSerializer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/StringSerializer.STRING.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/StringSerializer.STRING.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/StringSerializer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/StringSerializer.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/Tag.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/Tag.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/UninitializedMessageException.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/UninitializedMessageException.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/WireFormat.FieldType.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/WireFormat.FieldType.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/WireFormat.JavaType.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/WireFormat.JavaType.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/WireFormat.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/WireFormat.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/WriteSession.FlushHandler.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/WriteSession.FlushHandler.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/WriteSession.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/WriteSession.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/WriteSink.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/class-use/WriteSink.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/allclasses-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/allclasses-noframe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/constant-values.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/deprecated-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/help-doc.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index-all.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/overview-tree.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/package-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package-list" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/package-summary.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/package-tree.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/io/protostuff/package-use.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/script.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/serialized-form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/stylesheet.css" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\.gitignore" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\CNAME" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\LICENSE" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\README.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_config.yml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\analytics.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\disqus-comments.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\disqus-counts.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\footer.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\header.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\links-list.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_includes\sidebar.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_layouts\default.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_layouts\page.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_layouts\post.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_posts\2015-01-24-hello-world.markdown" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_sass\_base.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_sass\_layout.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_sass\_syntax-highlighting.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\about.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\about.md" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\archive.html" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\css\bootstrap.min.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\css\highlight.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\css\main.scss" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\css\theme.css" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\favicon.ico" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\favicon.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\feed.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\images\cc_by_88x31.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\js\bootstrap.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\js\jquery.min.js" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\links.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+    </list>
+    <ignored path="protostuff.github.io.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="protostuff.github.io" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/_posts/2015-01-24-welcome-to-jekyll.markdown" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/_posts/2015-01-24-hello-world.markdown" />
+        <option value="$PROJECT_DIR$/_includes/head.html" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_includes/header.html" />
+        <option value="$PROJECT_DIR$/css/highlight.css" />
+        <option value="$PROJECT_DIR$/_includes/links-list.html" />
+        <option value="$PROJECT_DIR$/_includes/footer.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-11" />
+    <option name="y" value="-11" />
+    <option name="width" value="1942" />
+    <option name="height" value="1046" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protostuff.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protostuff.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="protostuff.github.io" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="180" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="210" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1217" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="176" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="213" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="212" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1218" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\_sass" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Konstantin\IdeaProjects\protostuff.github.io\css" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="BatchConfigurationType" factoryName="Batch">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <module name="" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <module name="" />
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="depsClasspath" value="false" />
+      <setting name="passParentEnv" value="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <setting name="launchBrowser" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="jmh-id" factoryName="Jmh">
+      <module name="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0af7d0bc-3aa6-4074-89c7-e5cebcdb5f43" name="Default" comment="" />
+      <created>1422124210309</created>
+      <option name="number" value="Default" />
+      <updated>1422124210309</updated>
+      <workItem from="1422124213606" duration="4070000" />
+      <workItem from="1422202300705" duration="466000" />
+    </task>
+    <task id="LOCAL-00001" summary="Delete auto-generated posts">
+      <created>1422124517920</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1422124517920</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update gitignore">
+      <created>1422124785328</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1422124785328</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update config">
+      <created>1422125134194</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1422125134194</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Fix css for syntax highlighting">
+      <created>1422125675290</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1422125675290</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Upgrade config">
+      <created>1422125752829</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1422125752829</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Fix css for syntax highlighting">
+      <created>1422126190403</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1422126190403</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add links to issue tracker and releases page">
+      <created>1422126504890</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1422126504890</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add favicon (downloaded from http://icons.mysitemyway.com/legacy-icon/126232-simple-black-square-icon-alphanumeric-letter-p/#etc-download-box, license: creative commons)">
+      <created>1422187606587</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1422187606587</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Update favicon">
+      <created>1422187801028</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1422187801028</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update footer">
+      <created>1422193107496</created>
+      <option name="number" value="00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1422193107496</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Update footer">
+      <created>1422193128261</created>
+      <option name="number" value="00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1422193128261</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4536000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-11" y="-11" width="1942" height="1046" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22771214" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="false" />
+    <MESSAGE value="Delete auto-generated posts" />
+    <MESSAGE value="Update gitignore" />
+    <MESSAGE value="Update config" />
+    <MESSAGE value="Upgrade config" />
+    <MESSAGE value="Fix css for syntax highlighting" />
+    <MESSAGE value="Add links to issue tracker and releases page" />
+    <MESSAGE value="Add favicon (downloaded from http://icons.mysitemyway.com/legacy-icon/126232-simple-black-square-icon-alphanumeric-letter-p/#etc-download-box, license: creative commons)" />
+    <MESSAGE value="Update favicon" />
+    <MESSAGE value="Update footer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update footer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+</project>
