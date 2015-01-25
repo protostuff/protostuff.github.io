@@ -49,3 +49,19 @@ body {
 .author a {
     color: #ee4444;
 }
+
+.navbar-inverse {
+    background-color: #4D7A97;
+}
+
+.navbar-inverse a {
+    background-color: #4D7A97;
+}
+
+.navbar-inverse .navbar-nav> .active > a {
+    background-color: #2A6496;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
