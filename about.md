@@ -9,7 +9,7 @@ A serialization library with built-in support for forward-backward compatibility
 Developers
 ==========
 
-* [David You](https://github.com/dyu)
+* [David Yu](https://github.com/dyu)
 * [Kostiantyn Shchepanovskyi](https://github.com/kshchepanovskyi)
 
 Thanks to
