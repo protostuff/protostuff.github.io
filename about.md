@@ -110,3 +110,7 @@ eedzjee
 
 Site created using [Jekyll](http://jekyllrb.com), theme by [Scott Emmons](https://github.com/scotte/jekyll-clean) under
 [Creative Commons Attribution](http://creativecommons.org/licenses/by/4.0/).
+
+<hr>
+
+Protostuff title image generated using [worlde](http://www.wordle.net/).
