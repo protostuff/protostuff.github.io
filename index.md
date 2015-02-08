@@ -4,7 +4,7 @@ layout: default
 permalink: /
 ---
 
-![protostuff](/images/protostuff_400x133.png)
+![protostuff](/images/protostuff_300x100.png)
 
 A serialization library with built-in support for forward-backward compatibility (schema evolution) and validation.
 
