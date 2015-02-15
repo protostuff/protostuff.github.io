@@ -24,8 +24,8 @@ gaaccount: ''
 disqus: ''
 comments: true
 
-permalink: /:year/:month/:title
-paginate: 3
+permalink: /:title
+#paginate: 3
 
 highlighter: pygments
 markdown: redcarpet
@@ -33,3 +33,15 @@ redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
 exclude: ['README.md', 'LICENSE']
+
+authors:
+  dyu:
+    display_name: David Yu
+    gravatar: 7ff30f8eaf4b30c03b8fbaecc374f1ea
+    email: david.yu.ftw@gmail.com
+    github: dyu
+  kshchepanovskyi:
+    display_name: Kostiantyn Shchepanovskyi
+    gravatar: a17b313a2b4b40d3d0d1b5b9ca5201f2
+    email: schepanovsky@gmail.com
+    github: kshchepanovskyi
