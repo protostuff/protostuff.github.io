@@ -12,7 +12,7 @@ Available serialization formats:
 
 * `protobuf`
 * `protostuff` (native)
-* `graph` (protostuff with support for cyclic references. See SerializingObjectGraphs)
+* `graph` (protostuff with support for cyclic references. See [Serializing Object Graphs](/documentation/serializing-object-graphs/))
 * `json`
 * `smile` (binary json useable from the protostuff-json module)
 * `xml`

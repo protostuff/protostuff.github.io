@@ -1,6 +1,6 @@
 # Jekyll configuration
 
-name: Protostuff
+name: protostuff 
 description: java serialization library, proto compiler, code generator, protobuf utilities, gwt overlays, j2me, android and kindle interoperability
 
 # url is currently only used only for the RSS feed in feed.xml
