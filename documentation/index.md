@@ -6,4 +6,5 @@ permalink: /documentation/
 
 \<under construction\>
 
-[Serializing Object Graphs](/documentation/serializing-object-graphs/)
+1. [Serializing Object Graphs](/documentation/serializing-object-graphs/)
+2. [Using the proto compiler via maven](/documentation/compiler-maven/)
