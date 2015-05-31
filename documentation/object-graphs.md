@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Serializing Object Graphs
-permalink: /documentation/serializing-object-graphs/
+permalink: /documentation/object-graphs/
+redirect_from: /documentation/serializing-object-graphs/
 ---
 Serialization and de-serialization for deep object graphs (references and cyclic dependencies).
 

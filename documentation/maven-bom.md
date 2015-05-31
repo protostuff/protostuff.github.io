@@ -1,9 +1,7 @@
 ---
-layout: post
-title:  "Maven \"Bill Of Materials\""
-author: kshchepanovskyi
-date:   2015-02-15 15:30:00
-categories: maven pom
+layout: page
+title: Maven \"Bill Of Materials\"
+permalink: /documentation/maven-bom/
 ---
 
 It is possible to accidentally mix different versions of protostuff JARs when using Maven.
@@ -22,7 +20,7 @@ ensure that all protostuff dependencies (both direct and **transitive**) are at 
         <dependency>
             <groupId>io.protostuff</groupId>
             <artifactId>protostuff-bom</artifactId>
-            <version>1.3.2</version>
+            <version>1.3.5</version>
             <type>pom</type>
             <scope>import</scope>
         </dependency>

@@ -20,6 +20,11 @@ body {
     font-size: 1.3em;
 }
 
+.sidebar h2 {
+    color: #ee4444;
+    font-size: 1.1em;
+}
+
 .sidebar a {
     color: #428bca;
 }
@@ -49,20 +54,3 @@ body {
 .author a {
     color: #ee4444;
 }
-
-
-/*.navbar-inverse {*/
-    /*background-color: #4D7A97;*/
-/*}*/
-
-/*.navbar-inverse a {*/
-    /*background-color: #4D7A97;*/
-/*}*/
-
-/*.navbar-inverse .navbar-nav> .active > a {*/
-    /*background-color: #2A6496;*/
-/*}*/
-
-/*.navbar-inverse .navbar-brand {*/
-    /*color: white;*/
-/*}*/

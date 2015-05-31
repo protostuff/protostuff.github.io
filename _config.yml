@@ -45,3 +45,6 @@ authors:
     gravatar: a17b313a2b4b40d3d0d1b5b9ca5201f2
     email: schepanovsky@gmail.com
     github: kshchepanovskyi
+
+gems:
+  - jekyll-redirect-from
