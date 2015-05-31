@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Maven \"Bill Of Materials\"
+title: Maven "Bill Of Materials"
 permalink: /documentation/maven-bom/
 ---
 
