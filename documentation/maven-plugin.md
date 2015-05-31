@@ -30,29 +30,53 @@ Any subdirectories under `src/main/proto/` are treated as package structure for 
 Minimal configuration:
 
 ```xml
-<plugin>
-    <groupId>io.protostuff</groupId>
-    <artifactId>protostuff-maven-plugin</artifactId>
-    <version>1.3.5</version>
-    <configuration>
-        <protoModules>
-            <protoModule>
-                <source>src/main/proto</source>
-                <outputDir>target/generated-sources/proto</outputDir>
-                <output>java_bean</output>            
-            </protoModule>
-        </protoModules>
-    </configuration>
-    <executions>
-        <execution>
-            <id>generate-sources</id>
-            <phase>generate-sources</phase>
-            <goals>
-                <goal>compile</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.protostuff.examples</groupId>
+    <artifactId>protostuff-hello-world</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>1.3.5</version>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.protostuff</groupId>
+                <artifactId>protostuff-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <configuration>
+                    <protoModules>
+                        <protoModule>
+                            <source>src/main/proto</source>
+                            <outputDir>target/generated-sources/proto</outputDir>
+                            <output>java_bean</output>
+                        </protoModule>
+                    </protoModules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
 ```
 
 ### Code Generation
