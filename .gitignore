@@ -4,3 +4,5 @@ _cache
 .idea/
 *.iml
 
+samples/protostuff-compiler/target/
+
