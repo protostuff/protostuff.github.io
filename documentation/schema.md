@@ -6,11 +6,12 @@ permalink: /documentation/schema/
 # Schema
 
 Schema is a class comprised of:
-  * the serialization logic of an object
-  * the deserialization logic of an object
-  * the validation of an object's required fields
-  * the mapping of an object's field names to field numbers
-  * the instantiation of the object.
+
+* the serialization logic of an object
+* the deserialization logic of an object
+* the validation of an object's required fields
+* the mapping of an object's field names to field numbers
+* the instantiation of the object.
 
 For existing objects, you can use [protostuff-runtime](/documentation/runtime-schema) to generate the
 schema for you to cache and use at runtime via reflections.
