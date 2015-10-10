@@ -21,7 +21,7 @@ you can code it by hand.
 
 Say for example, here is an exising domain object.
 
-## `User.java`
+`User.java`
 
 ```java
 public class User
@@ -48,7 +48,7 @@ public class User
 
 Here's what the hand-written schema would look like:
 
-## `UserSchema.java` ##
+`UserSchema.java`
 
 ```java
 public class UserSchema implements Schema<User>
