@@ -3,8 +3,6 @@ layout: page
 title: Schema
 permalink: /documentation/schema/
 ---
-# Schema
-
 Schema is a class comprised of:
 
 * the serialization logic of an object
