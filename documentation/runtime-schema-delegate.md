@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Delegate
-permalink: /documentation/delegate/
+permalink: /documentation/runtime-schema-delegate/
 ---
 **`io.protostuff.runtime.Delegate` is available since 1.0.7**(protostuff-runtime)
 
