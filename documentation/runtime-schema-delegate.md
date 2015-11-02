@@ -3,19 +3,22 @@ layout: page
 title: Delegate
 permalink: /documentation/runtime-schema-delegate/
 ---
-**`io.protostuff.runtime.Delegate` is available since 1.0.7**(protostuff-runtime)
+`Delegate` is available since version 1.0.7 (protostuff-runtime).
 
-Useful for:
-  1. singletons
-  1. pojos with no fields
-  1. pojos that should not be merged
-  1. pojos that prefer to be written as scalar/inline values
-  1. could be used to pack primitive array types into a byte array
-  1. overriding protostuff-runtime's internal serializers for scalar fields (delegates have the first priority).
+It is useful for:
 
-You basically register them on initialization via:
+1. Singletons.
+2. POJOs with no fields.
+3. POJOs that should not be merged.
+4. POJOs that prefer to be written as scalar/inline values.
+5. Could be used to pack primitive array types into a byte array.
+6. Override protostuff-runtime's internal serializers for scalar fields (delegates have the first 
+   priority).
 
-* `DefaultIdStrategy.registerDelegate(Delegate<V> delegate)`
+You should register them on initialization via `DefaultIdStrategy.registerDelegate(Delegate<V> delegate)`.
+
+If you use different `IdStrategy`, then use one of:
+
 * `ExplicitIdStrategy.Registry.registerDelegate(Delegate<V> delegate, int id)`
 * `IncrementalIdStrategy.Registry.registerDelegate(Delegate<V> delegate, int id)`
 
