@@ -1,8 +1,8 @@
 [ {
-  "label" : "customer",
+  "label" : "customer.proto",
   "data" : {
     "type" : "proto",
-    "file" : "customer.proto"
+    "ref" : "com.example.customer"
   },
   "children" : [ {
     "label" : "Address",
@@ -18,10 +18,10 @@
     }
   } ]
 }, {
-  "label" : "vehicle",
+  "label" : "vehicle.proto",
   "data" : {
     "type" : "proto",
-    "file" : "vehicle.proto"
+    "ref" : "com.example.vehicle"
   },
   "children" : [ {
     "label" : "VehicleService",
@@ -75,10 +75,10 @@
     } ]
   } ]
 }, {
-  "label" : "booking",
+  "label" : "booking.proto",
   "data" : {
     "type" : "proto",
-    "file" : "booking.proto"
+    "ref" : "com.example.booking"
   },
   "children" : [ {
     "label" : "BookingStatus",
