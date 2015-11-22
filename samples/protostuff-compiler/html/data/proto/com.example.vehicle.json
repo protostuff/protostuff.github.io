@@ -1,0 +1,7 @@
+{
+  "name" : "vehicle",
+  "type" : "proto",
+  "canonicalName" : "com.example.vehicle",
+  "filename" : "vehicle.proto",
+  "description" : "Vehicle service definition."
+}

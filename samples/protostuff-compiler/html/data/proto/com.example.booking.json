@@ -1,0 +1,7 @@
+{
+  "name" : "booking",
+  "type" : "proto",
+  "canonicalName" : "com.example.booking",
+  "filename" : "booking.proto",
+  "description" : ""
+}

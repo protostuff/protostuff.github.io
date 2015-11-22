@@ -1,0 +1,7 @@
+{
+  "name" : "customer",
+  "type" : "proto",
+  "canonicalName" : "com.example.customer",
+  "filename" : "customer.proto",
+  "description" : ""
+}
