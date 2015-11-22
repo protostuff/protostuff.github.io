@@ -1,0 +1,37 @@
+{
+  "name" : "Booking",
+  "type" : "message",
+  "canonicalName" : "com.example.Booking",
+  "description" : "Represents the booking of a vehicle.\n\nVehicles are some cool shit. But drive carefully!",
+  "fields" : [ {
+    "name" : "vehicle_id",
+    "typeId" : "int32",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "ID of booked vehicle."
+  }, {
+    "name" : "customer_id",
+    "typeId" : "int32",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "Customer that booked the vehicle."
+  }, {
+    "name" : "status",
+    "typeId" : "com.example.BookingStatus",
+    "modifier" : "required",
+    "tag" : 3,
+    "description" : "Status of the booking."
+  }, {
+    "name" : "confirmation_sent",
+    "typeId" : "bool",
+    "modifier" : "required",
+    "tag" : 4,
+    "description" : "Has booking confirmation been sent?"
+  }, {
+    "name" : "payment_received",
+    "typeId" : "bool",
+    "modifier" : "required",
+    "tag" : 5,
+    "description" : "Has payment been received?"
+  } ]
+}

@@ -1,0 +1,19 @@
+{
+  "name" : "BookingStatus",
+  "type" : "message",
+  "canonicalName" : "com.example.BookingStatus",
+  "description" : "Represents the status of a vehicle booking.",
+  "fields" : [ {
+    "name" : "id",
+    "typeId" : "int32",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "Unique booking status ID."
+  }, {
+    "name" : "description",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "Booking status description. E.g. \"Active\"."
+  } ]
+}

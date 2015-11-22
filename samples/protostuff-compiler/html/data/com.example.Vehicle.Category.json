@@ -1,0 +1,19 @@
+{
+  "name" : "Category",
+  "type" : "message",
+  "canonicalName" : "com.example.Vehicle.Category",
+  "description" : "Represents a vehicle category. E.g. \"Sedan\" or \"Truck\".",
+  "fields" : [ {
+    "name" : "code",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "Category code. E.g. \"S\"."
+  }, {
+    "name" : "description",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "Category name. E.g. \"Sedan\"."
+  } ]
+}

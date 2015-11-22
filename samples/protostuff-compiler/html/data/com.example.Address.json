@@ -1,0 +1,43 @@
+{
+  "name" : "Address",
+  "type" : "message",
+  "canonicalName" : "com.example.Address",
+  "description" : "Represents a mail address.",
+  "fields" : [ {
+    "name" : "address_line_1",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "First address line."
+  }, {
+    "name" : "address_line_2",
+    "typeId" : "string",
+    "modifier" : "optional",
+    "tag" : 2,
+    "description" : "Second address line."
+  }, {
+    "name" : "address_line_3",
+    "typeId" : "string",
+    "modifier" : "optional",
+    "tag" : 3,
+    "description" : "Second address line."
+  }, {
+    "name" : "town",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 4,
+    "description" : "Address town."
+  }, {
+    "name" : "county",
+    "typeId" : "string",
+    "modifier" : "optional",
+    "tag" : 5,
+    "description" : "Address county, if applicable."
+  }, {
+    "name" : "country",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 6,
+    "description" : "Address country."
+  } ]
+}

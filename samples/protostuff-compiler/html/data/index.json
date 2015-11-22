@@ -1,0 +1,96 @@
+[ {
+  "label" : "customer",
+  "data" : {
+    "type" : "proto",
+    "file" : "customer.proto"
+  },
+  "children" : [ {
+    "label" : "Address",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.Address"
+    }
+  }, {
+    "label" : "Customer",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.Customer"
+    }
+  } ]
+}, {
+  "label" : "vehicle",
+  "data" : {
+    "type" : "proto",
+    "file" : "vehicle.proto"
+  },
+  "children" : [ {
+    "label" : "VehicleService",
+    "data" : {
+      "type" : "service",
+      "ref" : "com.example.VehicleService"
+    }
+  }, {
+    "label" : "HireVehicleRequest",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.HireVehicleRequest"
+    }
+  }, {
+    "label" : "HireVehicleResponse",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.HireVehicleResponse"
+    }
+  }, {
+    "label" : "Manufacturer",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.Manufacturer"
+    },
+    "children" : [ {
+      "label" : "Category",
+      "data" : {
+        "type" : "enum",
+        "ref" : "com.example.Manufacturer.Category"
+      }
+    } ]
+  }, {
+    "label" : "Model",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.Model"
+    }
+  }, {
+    "label" : "Vehicle",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.Vehicle"
+    },
+    "children" : [ {
+      "label" : "Category",
+      "data" : {
+        "type" : "message",
+        "ref" : "com.example.Vehicle.Category"
+      }
+    } ]
+  } ]
+}, {
+  "label" : "booking",
+  "data" : {
+    "type" : "proto",
+    "file" : "booking.proto"
+  },
+  "children" : [ {
+    "label" : "BookingStatus",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.BookingStatus"
+    }
+  }, {
+    "label" : "Booking",
+    "data" : {
+      "type" : "message",
+      "ref" : "com.example.Booking"
+    }
+  } ]
+} ]

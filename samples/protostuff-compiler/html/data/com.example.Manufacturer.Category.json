@@ -1,0 +1,15 @@
+{
+  "name" : "Category",
+  "type" : "enum",
+  "canonicalName" : "com.example.Manufacturer.Category",
+  "description" : "Manufacturer category. A manufacturer may be either inhouse or external.",
+  "constants" : [ {
+    "name" : "CATEGORY_INHOUSE",
+    "description" : "The manufacturer is inhouse.",
+    "value" : 0
+  }, {
+    "name" : "CATEGORY_EXTERNAL",
+    "description" : "The manufacturer is external.",
+    "value" : 1
+  } ]
+}

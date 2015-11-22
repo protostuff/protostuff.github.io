@@ -1,0 +1,13 @@
+{
+  "name" : "HireVehicleResponse",
+  "type" : "message",
+  "canonicalName" : "com.example.HireVehicleResponse",
+  "description" : "",
+  "fields" : [ {
+    "name" : "success",
+    "typeId" : "bool",
+    "modifier" : "optional",
+    "tag" : 1,
+    "description" : ""
+  } ]
+}

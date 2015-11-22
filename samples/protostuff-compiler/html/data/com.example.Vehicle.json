@@ -1,0 +1,49 @@
+{
+  "name" : "Vehicle",
+  "type" : "message",
+  "canonicalName" : "com.example.Vehicle",
+  "description" : "Represents a vehicle that can be hired.",
+  "fields" : [ {
+    "name" : "id",
+    "typeId" : "int32",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "Unique vehicle ID."
+  }, {
+    "name" : "model",
+    "typeId" : "com.example.Model",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "Vehicle model."
+  }, {
+    "name" : "reg_number",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 3,
+    "description" : "Vehicle registration number."
+  }, {
+    "name" : "mileage",
+    "typeId" : "sint32",
+    "modifier" : "optional",
+    "tag" : 4,
+    "description" : "Current vehicle mileage, if known."
+  }, {
+    "name" : "category",
+    "typeId" : "com.example.Vehicle.Category",
+    "modifier" : "optional",
+    "tag" : 5,
+    "description" : "Vehicle category."
+  }, {
+    "name" : "daily_hire_rate_dollars",
+    "typeId" : "sint32",
+    "modifier" : "optional",
+    "tag" : 6,
+    "description" : "Dollars per day.\n\nTaken from model if unspecified."
+  }, {
+    "name" : "daily_hire_rate_cents",
+    "typeId" : "sint32",
+    "modifier" : "optional",
+    "tag" : 7,
+    "description" : "Cents per day.\n\nTaken from model if unspecified."
+  } ]
+}

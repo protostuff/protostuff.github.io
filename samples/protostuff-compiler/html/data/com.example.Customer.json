@@ -1,0 +1,49 @@
+{
+  "name" : "Customer",
+  "type" : "message",
+  "canonicalName" : "com.example.Customer",
+  "description" : "Represents a customer.",
+  "fields" : [ {
+    "name" : "id",
+    "typeId" : "int32",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "Unique customer ID."
+  }, {
+    "name" : "first_name",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "Customer first name."
+  }, {
+    "name" : "last_name",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 3,
+    "description" : "Customer last name."
+  }, {
+    "name" : "details",
+    "typeId" : "string",
+    "modifier" : "optional",
+    "tag" : 4,
+    "description" : "Customer details."
+  }, {
+    "name" : "email_address",
+    "typeId" : "string",
+    "modifier" : "optional",
+    "tag" : 5,
+    "description" : "Customer e-mail address."
+  }, {
+    "name" : "phone_number",
+    "typeId" : "string",
+    "modifier" : "repeated",
+    "tag" : 6,
+    "description" : "Customer phone numbers, primary first."
+  }, {
+    "name" : "mail_addresses",
+    "typeId" : "com.example.Address",
+    "modifier" : "repeated",
+    "tag" : 7,
+    "description" : "Customer mail addresses, primary first."
+  } ]
+}

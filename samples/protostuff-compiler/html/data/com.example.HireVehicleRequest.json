@@ -1,0 +1,13 @@
+{
+  "name" : "HireVehicleRequest",
+  "type" : "message",
+  "canonicalName" : "com.example.HireVehicleRequest",
+  "description" : "",
+  "fields" : [ {
+    "name" : "vehicle",
+    "typeId" : "com.example.Vehicle",
+    "modifier" : "optional",
+    "tag" : 1,
+    "description" : ""
+  } ]
+}

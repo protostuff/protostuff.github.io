@@ -1,0 +1,37 @@
+{
+  "name" : "Model",
+  "type" : "message",
+  "canonicalName" : "com.example.Model",
+  "description" : "Represents a vehicle model.",
+  "fields" : [ {
+    "name" : "id",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "The unique model ID."
+  }, {
+    "name" : "model_code",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "The car model code, e.g. \"PZ003\"."
+  }, {
+    "name" : "model_name",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 3,
+    "description" : "The car model name, e.g. \"Z3\"."
+  }, {
+    "name" : "daily_hire_rate_dollars",
+    "typeId" : "sint32",
+    "modifier" : "required",
+    "tag" : 4,
+    "description" : "Dollars per day."
+  }, {
+    "name" : "daily_hire_rate_cents",
+    "typeId" : "sint32",
+    "modifier" : "required",
+    "tag" : 5,
+    "description" : "Cents per day."
+  } ]
+}

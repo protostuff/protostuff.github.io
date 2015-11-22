@@ -1,0 +1,31 @@
+{
+  "name" : "Manufacturer",
+  "type" : "message",
+  "canonicalName" : "com.example.Manufacturer",
+  "description" : "Represents a manufacturer of cars.",
+  "fields" : [ {
+    "name" : "id",
+    "typeId" : "int32",
+    "modifier" : "required",
+    "tag" : 1,
+    "description" : "The unique manufacturer ID."
+  }, {
+    "name" : "code",
+    "typeId" : "string",
+    "modifier" : "required",
+    "tag" : 2,
+    "description" : "A manufacturer code, e.g. \"DKL4P\"."
+  }, {
+    "name" : "category",
+    "typeId" : "com.example.Manufacturer.Category",
+    "modifier" : "required",
+    "tag" : 3,
+    "description" : "Manufacturer category."
+  }, {
+    "name" : "details",
+    "typeId" : "string",
+    "modifier" : "optional",
+    "tag" : 4,
+    "description" : "Manufacturer details (minimum orders et.c.)."
+  } ]
+}

@@ -1,0 +1,12 @@
+{
+  "name" : "VehicleService",
+  "type" : "service",
+  "canonicalName" : "com.example.VehicleService",
+  "description" : "Vehicle service allows users to hire a vehicle.",
+  "methods" : [ {
+    "name" : "hire",
+    "description" : "Request to hire a vehicle.",
+    "argTypeId" : "com.example.HireVehicleRequest",
+    "returnTypeId" : "com.example.HireVehicleResponse"
+  } ]
+}

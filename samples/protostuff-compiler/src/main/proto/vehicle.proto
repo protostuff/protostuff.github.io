@@ -1,5 +1,19 @@
 package com.example;
 
+// Vehicle service allows users to hire a vehicle.
+service VehicleService {
+
+    // Request to hire a vehicle.
+    rpc hire(HireVehicleRequest) returns (HireVehicleResponse);
+}
+
+message HireVehicleRequest {
+    optional Vehicle vehicle = 1;
+}
+
+message HireVehicleResponse {
+    optional bool success = 1;
+}
 
 // Represents a manufacturer of cars.
 message Manufacturer {
