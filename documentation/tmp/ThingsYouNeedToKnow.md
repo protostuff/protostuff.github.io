@@ -29,7 +29,7 @@ what protobuf/protostuff does:
 messages can be streamed like most serialization formats (e.g json)
 
 If you need validation, then you need to buffer your writes before writing to the socket (`OutputStream`). Same rules apply for json, xml and other streaming formats.
-```
+~~~
      LinkedBuffer buffer = ...;
      try
      {
@@ -47,7 +47,7 @@ If you need validation, then you need to buffer your writes before writing to th
        buffer.clear();
      }
      
-```
+~~~
 Note that validation is intended for incoming messages.
 
 When populating the messages, you as the developer should already know which fields are required.
@@ -155,7 +155,7 @@ This is only available for protostuff-runtime (obviously).
 What does this really mean?
   * A pojo can have a field that is not a concrete type.
   * E.g
-```
+~~~
    public interface Foo
    {
        // ...
@@ -170,7 +170,7 @@ What does this really mean?
        Bar bar;
        Object baz; // can be foo or bar
    } 
-```
+~~~
 
 ## Runtime Options ##
 
@@ -182,7 +182,7 @@ Runtime options for protostuff-runtime:
     * The collection (repeated field) will be serialized like a regular message (even if the collection is empty).
     * Disabled by default for protobuf compatibility (the collection is not serialized, only its values).
     * Here's an example (read the comments):
-```
+~~~
 public final class Foo
 {
    List<String> stringList;
@@ -190,9 +190,9 @@ public final class Foo
    // equals and hashCode methods
 
 }
-```
+~~~
     * Ser/deser
-```
+~~~
    LinkedBuffer buffer = ...;
    Foo foo = new Foo();
    // empty list
@@ -215,24 +215,24 @@ public final class Foo
    assertEquals(f, foo); // this will fail if the option is not enabled because f.stringList will be null.
    // It would have been an empty list if the option was enabled (which makes it equal)
    
-```
+~~~
 
   * `-Dprotostuff.runtime.auto_load_polymorphic_classes=false`
     * Polymorphic serialization includes the concrete type of the object being serialized.  Upon deserialization, that className is read and is used to fetch the derived schema.
-```
+~~~
     boolean autoLoad = RuntimeSchema.AUTO_LOAD_POLYMORHIC_CLASSES;
     String className = ...; // read from the input.
     Schema<Object> derivedSchema = RuntimeSchema.getSchema(className, autoLoad);
     // If the class has not been loaded, and autoLoad is true, it will be loaded from the context classloader.
     // If autoLoad is false, a ProtostuffException is thrown (illegal operation, unknown message)
-```
+~~~
     * Enabled by default.  For security purposes, you can pre-load all your known pojos and disable this. Here's how:
-```
+~~~
 // the code below preloads the schema of your pojos.
 RuntimeSchema.getSchema(SomePojo.class);
 RuntimeSchema.getSchema(AnotherPojo.class);
 // and so on ...
-```
+~~~
 
   * `-Dprotostuff.runtime.morph_non_final_pojos=true`
     * Disabled by default (Some devs have a habit of not using the final keyword).
@@ -255,17 +255,17 @@ RuntimeSchema.getSchema(AnotherPojo.class);
     * Enabling this is useful if you want to retain the actual impl used (type metadata will be included).
     * To enable/override for a particular field, annotate the field with `com.dyuproject.protostuff.Morph` (since 1.0.7)
     * Since it is disabled by default, "`List<String> names;`" would be serialized to json like:
-```
+~~~
      {
        "names": ["foo","bar"]
      }
-```
+~~~
     * If enabled:
-```
+~~~
      {
        "names": {"y":"ArrayList", "v":[{"i":"foo"},{"i":"bar"}]}
      }
-```
+~~~
     * If you're using protostuff for webservices, then you'll probably want to leave it disabled and let protostuff map it to an `ArrayList`.
 
   * `-Dprotostuff.runtime.morph_map_interfaces=true` (since 1.0.7)

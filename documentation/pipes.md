@@ -15,7 +15,7 @@ encoding to another.
 
 Here's the normal approach:
 
-```java
+~~~java
 InputStream protobufInputStream;
 
 // deserialize
@@ -25,18 +25,18 @@ ProtobufIOUtil.mergeFrom(protobufInputStream, foo, Foo.getSchema(), inBuf);
 // write to json
 LinkedBuffer buffer = ...;
 JsonIOUtil.writeTo(outputStream, foo, Foo.getSchema(), false, buffer);
-```
+~~~
 
 Here's the code using pipes:
 
-```java
+~~~java
 InputStream protobufInputStream;
 
 // transcode the protobuf encoding to json encoding
 LinkedBuffer buffer = ...;
 Pipe pipe = ProtobufIOUtil.newPipe(protobufInputStream);
 JsonIOUtil.writeTo(outputStream, pipe, Foo.getPipeSchema(), false, buffer);
-```
+~~~
 
 Note that for generated message, you need to enable the `generate_pipe_schema` option 
 (see [compiler options](/documentation/compiler-options#java_bean)). A static method 
@@ -45,7 +45,7 @@ Note that for generated message, you need to enable the `generate_pipe_schema` o
 For runtime objects, pipes are also supported. The schema of a runtime object is an instance of 
 `MappedSchema<T>`, which has a `getPipeSchema()` method.
 
-```java
+~~~java
 // protostuff byte array from cache or datastore
 byte[] protostuffData = ...;
 MappedSchema<Foo> schema = (MappedSchema<Foo>)RuntimeSchema.getSchema(Foo.class);
@@ -54,4 +54,4 @@ MappedSchema<Foo> schema = (MappedSchema<Foo>)RuntimeSchema.getSchema(Foo.class)
 LinkedBuffer buffer = ...;
 Pipe pipe = ProtostuffIOUtil.newPipe(protostuffData, 0, protostuffData.length);
 JsonIOUtil.writeTo(outputStream, pipe, schema.getPipeSchema(), true, buffer);
-```
+~~~

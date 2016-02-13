@@ -10,7 +10,7 @@ Enable the option **dev\_mode** during active development on hosted mode.
 See the [compiler options](CompilerOptions#gwt_overlay.md) for more details.
 
 `foo.proto`
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -26,7 +26,7 @@ message Person {
   }
   optional Gender gender = 4;
 }
-```
+~~~
 
 Enabled options:
   * use\_global\_json
@@ -34,7 +34,7 @@ Enabled options:
 
 The complete output:
 
-```
+~~~
 
 package com.example.foo;
 
@@ -215,4 +215,4 @@ public final class Person extends JavaScriptObject  {
 
 }
 
-```
+~~~

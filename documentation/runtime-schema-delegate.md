@@ -24,7 +24,7 @@ If you use different `IdStrategy`, then use one of:
 
 Here's an example for 1 or 2.
 
-```java
+~~~java
 public static final class Singleton
 {
     public static final Singleton INSTANCE = new Singleton();
@@ -76,11 +76,11 @@ public static final Delegate<Singleton> SINGLETON_DELEGATE =
         output.writeUInt32(number, input.readUInt32(), repeated);
     }
 };
-```
+~~~
 
 Here's an example for 3 or 4.
 
-```java
+~~~java
 public static final Delegate<UUID> UUID_DELEGATE = new Delegate<UUID>()
 {
 
@@ -153,11 +153,11 @@ static void writeInt64(final long value, final byte[] buffer, int offset)
     buffer[offset++] = (byte)(value >>>  8);
     buffer[offset] = (byte)(value >>>  0);
 }
-```
+~~~
 
 Here's an example for 5.
 
-```java
+~~~java
 public static final Delegate<short[]> SHORT_ARRAY_DELEGATE = new Delegate<short[]>()
 {
     public Class<?> typeClass()
@@ -202,4 +202,4 @@ public static final Delegate<short[]> SHORT_ARRAY_DELEGATE = new Delegate<short[
         input.transferByteRangeTo(output, false, number, repeated);
     }
 };
-```
+~~~

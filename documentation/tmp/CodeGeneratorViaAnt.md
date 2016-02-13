@@ -13,7 +13,7 @@ The steps involved in generating the code are:
   * generate the code using the protostuff-codegen jar
 
 ## `Model.proto` ##
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -30,10 +30,10 @@ message Greet {
   }
   optional Status status = 4;
 }
-```
+~~~
 
 ## `modules.properties` ##
-```
+~~~
 modules = foo
 
 foo.fullClassname = com.example.foo.model.Model
@@ -42,11 +42,11 @@ foo.outputDir = generated
 foo.generator = json // json/numeric_json/gwt_json/gwt_numeric_json
 foo.encoding = UTF-8
 
-```
+~~~
 
 ## `build.xml` ##
 
-```
+~~~
 <project name="foo" basedir=".">
 
 <target name="protoc">
@@ -75,9 +75,9 @@ foo.encoding = UTF-8
 </target>
 
 </project>
-```
+~~~
 
 Execute:
-```
+~~~
 $ ant codegen
-```
+~~~

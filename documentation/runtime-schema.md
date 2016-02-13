@@ -25,7 +25,7 @@ Sun jdk6 or higher is recommended for [guaranteed ordering](http://stackoverflow
 
 **As of 1.0.5, `@Tag` annotations can be used on fields to have explicit control of the field numbers**
 
-```java
+~~~java
 // all or nothing.  
 // Either you annotate all fields or you don't annotate at all (applies to the relevant class only).
 // To exclude certain fields, use java's transient keyword
@@ -43,7 +43,7 @@ public final class Bar
 // with this approach, versioning with inheritance is now fully supported.
 // you simply reserve x-y (range) numbers for the fields of the parent class.
 // internally it will be detected when you make mistakes tagging with the same number.
-```
+~~~
 
 **Note that if you have non-static inner classes and want to use @Tag annotations, mark that class as static instead.  See [Issue 146](http://code.google.com/p/protostuff/issues/detail?id=146) for details.**
 
@@ -55,7 +55,7 @@ Without `@Tag` annotations, forward-backward compatibility is still supported vi
 
 Here's an example:
 
-```java
+~~~java
 public final class Entity
 {
     int id;
@@ -67,7 +67,7 @@ public final class Entity
     
     long timestamp;
 }
-```
+~~~
 
 Schema evolution scenario:
 
@@ -93,7 +93,7 @@ Compact since no extra metadata included on serialization
 
 E.g
 
-```java
+~~~java
 public enum SortOrder
 {
     ASCENDING,
@@ -112,7 +112,7 @@ public final class Bar
     Map<Entity,Date> entityMapWithPojoKeys;
     Map<Entity,Entity> entityMap;
 }
-```
+~~~
 
 ## `DerivativeSchema`
 
@@ -121,7 +121,7 @@ Used when the declared field is an abstract class. Less compact since the type m
 
 E.g
 
-```java
+~~~java
 public abstract class Instrument
 {
     // ...
@@ -148,7 +148,7 @@ public final class Baz
     Map<Instrument,Instrument> instrumentMap;
 }
 
-```
+~~~
 
 IMPORTANT: 
 
@@ -160,7 +160,7 @@ similar to abstract classes.
 
 For example:
 
-```java
+~~~java
 class Base
 {
  int id = 1;
@@ -182,7 +182,7 @@ class Pojo
 
 // To ensure that no extra type metadata be will written, mark 
 // your pojos final when you know there are no subclasses.
-```
+~~~
 
 ### `ObjectSchema` (dynamic)
 
@@ -197,7 +197,7 @@ Used when the type of the declared fields:
 
 E.g
 
-```java
+~~~java
 public final class Dynamic
 {
     Object entity;
@@ -225,7 +225,7 @@ public final class Dynamic
     Map<String,List<SortOrder>> complexMap;
     Map<Set<Entity>,Long> anotherComplexMap;
 }
-```
+~~~
 
 ## Updating fields
 
@@ -240,7 +240,7 @@ For scalar fields:
 * `String` can be updated to `byte[]`/`ByteString` (and vice versa), not compatible with text 
   formats (e.g json/xml/yaml)
 
-```java
+~~~java
 class Example
 {
    int i;
@@ -251,7 +251,7 @@ class Example
    byte[] b;
    ByteString bs;
 }
-```
+~~~
 
 ## Performance guidelines
 
@@ -266,19 +266,19 @@ Register your concrete classes at startup via `ExplicitIdStrategy.Registry`.
 For objects not known ahead of time, use `IncrementalIdStrategy`
 You can activate it using the system property:
 
-```
+~~~
 -Dprotostuff.runtime.id_strategy_factory=com.dyuproject.protostuff.runtime.IncrementalIdStrategy$Factory
-```
+~~~
 
 You can also use these strategies independently.  E.g:
 
-```java
+~~~java
 final IncrementalIdStrategy strategy = new IncrementalIdStrategy(....);  
 // use its registry if you want to pre-register classes.
 
 // Then when your app needs a schema, use it.
 RuntimeSchema.getSchema(clazz, strategy);
-```
+~~~
 
 ## Usage
 
@@ -286,7 +286,7 @@ Note that on deserialization, if your object does not have a default constructor
 `schema.newMessage()` to instantiate (internally similar to how the default java-serialization 
 instantiates).
 
-```java
+~~~java
 Foo foo = new Foo("foo", 1, 3.5);
 
 // this is lazily created and cached by RuntimeSchema
@@ -354,11 +354,11 @@ finally
 {
    buffer.clear();
 }
-```
+~~~
 
 ## Reading/Writing from/to streams
 
-```java
+~~~java
 Foo foo = new Foo("foo", 1, 3.5);
 
 Schema<Foo> schema = RuntimeSchema.getSchema(Foo.class);
@@ -423,4 +423,4 @@ finally
 {
    buffer.clear();
 }
-```
+~~~

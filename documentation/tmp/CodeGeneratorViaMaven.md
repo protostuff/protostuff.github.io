@@ -14,7 +14,7 @@ The steps involved in generating the code are:
 Try out the [maven archetypes](MavenArchetypes.md) to visualize the project layout for rapid development.
 
 ## `Model.proto` ##
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -31,12 +31,12 @@ message Greet {
   }
   optional Status status = 4;
 }
-```
+~~~
 
 2 Modules:
 
   * ## `model/pom.xml` ##
-```
+~~~
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <parent>
@@ -86,11 +86,11 @@ message Greet {
   </dependencies>
 
 </project>
-```
+~~~
 
   * ## `json/pom.xml` ##
 
-```
+~~~
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <parent>
@@ -157,9 +157,9 @@ message Greet {
 
 </project>
 
-```
+~~~
 
 Eexecute:
-```
+~~~
 $ mvn install
-```
+~~~

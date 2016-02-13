@@ -137,14 +137,14 @@ Transcoding support
   * can easily be [extended/customized to compile to any output](WritingCustomCodeGenerators.md).
   * To compile, execute: java -jar **protostuff-compiler-1.0.8-jarjar.jar** protostuff.properties
 > > `protostuff.properties`
-```
+~~~
    modules = foo
    foo.source = path/to/your/foo.proto
    #java_bean, gwt_overlay, java_v2protoc_schema
    foo.output = java_bean
    foo.outputDir = generated
    foo.options = some_key,key:value,another_key
-```
+~~~
 
 
 > See the [compiler options](CompilerOptions.md).
@@ -172,7 +172,7 @@ Transcoding support
 **protostuff-maven-plugin**
   * configuration, compilation and code generation of .proto files via maven2
   * sample config
-```
+~~~
       <plugin>
         <groupId>com.dyuproject.protostuff</groupId>
         <artifactId>protostuff-maven-plugin</artifactId>
@@ -205,6 +205,6 @@ Transcoding support
           </execution>
         </executions>
       </plugin>
-```
+~~~
 
 image made with [wordle](http://wordle.net)

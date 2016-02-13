@@ -7,7 +7,7 @@ This library allows your generated pojos, existing pojos and existing protoc-gen
 Take a look at the example:
 
 `foo.proto`
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -23,7 +23,7 @@ message Person {
   }
   optional Gender gender = 4;
 }
-```
+~~~
 
 # java\_bean #
 
@@ -32,24 +32,24 @@ See [compiler options](CompilerOptions#java_bean.md) for more details.
   * simple pojos with a self-contained [schema](Schema.md).
 
 ### Serialization ###
-```
+~~~
 Person person = new Person(1);
 person.setName("John Doe");
 person.setMotto("Speed kills!");
 person.setGender(Gender.MALE);
-```
+~~~
 
 All write operations require a `LinkedBuffer` as an arg.
 
 It is better to re-use the buffer (application/threadlocal buffer) to avoid buffer allocation everytime you serialize.
 
 Allocating a new buffer:
-```
+~~~
 LinkedBuffer buffer = LinkedBuffer.allocate(512);
-```
+~~~
 
 **writing to `java.io.OutputStream`**
-```
+~~~
 OutputStream out;
 LinkedBuffer buffer = getApplicationBuffer();
 try
@@ -60,10 +60,10 @@ finally
 {
     buffer.clear();
 }
-```
+~~~
 
 **writing to a `LinkedBuffer`**
-```
+~~~
 LinkedBuffer buffer = getApplicationBuffer();
 try
 {
@@ -75,10 +75,10 @@ finally
     // after writing, clear the buffer
     buffer.clear();
 }
-```
+~~~
 
 **writing to a byte array**
-```
+~~~
 LinkedBuffer buffer = getApplicationBuffer();
 try
 {
@@ -89,15 +89,15 @@ finally
 {
     buffer.clear();
 }
-```
+~~~
 
 The output would look like:
-```
+~~~
 --- !Person
 name: John Doe
 motto: Speed kills!
 gender: 1
-```
+~~~
 
 # java\_v2protoc\_schema #
 
@@ -106,7 +106,7 @@ Generated code via **protostuff-compiler**.  See [compiler options](CompilerOpti
   * allows the existing protoc-generated code to be efficiently serialized to yaml.
 
 The generated code from c++ protoc would look like:
-```
+~~~
 public final class Foo 
 {
     public static final class Person extends com.google.protobuf.GeneratedMessageLite 
@@ -121,10 +121,10 @@ public final class Foo
         }
     }
 }
-```
+~~~
 
 The generated [schema](Schema.md) by protostuff-compiler would look like:
-```
+~~~
 public final class SchemaFoo 
 {
     public static final class Person 
@@ -143,30 +143,30 @@ public final class SchemaFoo
         }
     }
 }
-```
+~~~
 
 It contains the ser/deser logic and also allows the fields to be written using its name or number.
 
 ### Serialization ###
-```
+~~~
 Person person = Person.newBuilder()
     .setName("John Doe")
     .setMotto("Speed kills!")
     .setGender(Gender.MALE)
     .build();
-```
+~~~
 
 All write operations require a `LinkedBuffer` as an arg.
 
 It is better to re-use the buffer (application/threadlocal buffer) to avoid buffer allocation everytime you serialize.
 
 Allocating a new buffer:
-```
+~~~
 LinkedBuffer buffer = LinkedBuffer.allocate(512);
-```
+~~~
 
 **writing to `java.io.OutputStream`**
-```
+~~~
 OutputStream out;
 LinkedBuffer buffer = getApplicationBuffer();
 try
@@ -177,10 +177,10 @@ finally
 {
     buffer.clear();
 }
-```
+~~~
 
 **writing to a `LinkedBuffer`**
-```
+~~~
 LinkedBuffer buffer = getApplicationBuffer();
 try
 {
@@ -192,10 +192,10 @@ finally
     // after writing, clear the buffer
     buffer.clear();
 }
-```
+~~~
 
 **writing to a byte array**
-```
+~~~
 LinkedBuffer buffer = getApplicationBuffer();
 try
 {
@@ -206,12 +206,12 @@ finally
 {
     buffer.clear();
 }
-```
+~~~
 
 The output would look like:
-```
+~~~
 --- !Person
 name: John Doe
 motto: Speed kills!
 gender: 1
-```
+~~~

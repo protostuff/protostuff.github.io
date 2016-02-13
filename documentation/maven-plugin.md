@@ -13,14 +13,14 @@ of the plugin.
 
 The following default directory structure of the project is assumed:
 
-```    
+~~~
 <project root>
 ├───pom.xml
 └───src
     └───main
         └───proto
             └───foo.proto
-```
+~~~
 
 Protocol buffer definitions location is configurable, but we recommend to use `src/main/proto/` directory. 
 Any subdirectories under `src/main/proto/` are treated as package structure for protobuf definition imports. 
@@ -29,7 +29,7 @@ Any subdirectories under `src/main/proto/` are treated as package structure for 
 
 Minimal configuration:
 
-```xml
+~~~xml
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -77,25 +77,25 @@ Minimal configuration:
     </build>
 
 </project>
-```
+~~~
 
 ### Code Generation
 
 If you configured `protostuff-maven-plugin` as described above, then sources are generated automatically each time
 when you build project.
 
-```
+~~~
 $ mvn clean install
-```
+~~~
 
 You can explicitly invoke the plugin via:
 
-```
+~~~
 $ mvn protostuff:compile
-```
+~~~
 
 You can skip the compilation by specifying the property:
 
-```
+~~~
 -Dprotostuff.compiler.skip=true
-```
+~~~

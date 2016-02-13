@@ -9,12 +9,12 @@ does not disable the option - remove the entry instead to disable.
 
 In maven, you would declare the key:value as:
 
-```xml
+~~~xml
 <property>
   <name>Foo.implements_declaration</name> <!-- key -->
   <value>implements com.example.Bar</value> <!-- value -->
 </property>
-```
+~~~
 
 # All generators
 
@@ -40,10 +40,10 @@ to json output with its field names.
 `generate_field_map` - generates a mapping between the field number and field name.
 If on, you can serialize json encoded messages writing either its field name or field number.
 
-```java
+~~~java
 boolean numeric = false;
 JsonIOUtil.writeTo(out, message, numeric);
-```
+~~~
 
 `generate_pipe_schema` - generates a pipe schema for transcoding an input to a different output.
 
@@ -92,10 +92,10 @@ implement the given interface. Note that gwt overlays can implement interfaces i
 `generate_field_map` - generates a mapping between the field number and field name.
 If on, you can serialize json encoded messages writing either its field name or field number.
 
-```java
+~~~java
 boolean numeric = false;
 JsonIOUtil.writeTo(out, message, numeric);
-```
+~~~
 
 `enums_by_name` - serialize enums using their name instead of their number.
 

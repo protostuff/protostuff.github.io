@@ -6,7 +6,7 @@ Currently there are 3 outputs:
   * java\_v2protoc\_schema
 
 `foo.proto`
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -22,10 +22,10 @@ message Person {
   }
   optional Gender gender = 4;
 }
-```
+~~~
 
 ## `pom.xml plugin setup` ##
-```
+~~~
       <plugin>
         <groupId>com.dyuproject.protostuff</groupId>
         <artifactId>protostuff-maven-plugin</artifactId>
@@ -56,17 +56,17 @@ message Person {
         </executions>
       </plugin>
 
-```
+~~~
 
 
 You can explicitly invoke the compiler via:
-```
+~~~
 $ mvn protostuff:compile
-```
+~~~
 
 
 You can skip the compilation by specifiying the property:
-```
+~~~
 -Dprotostuff.compiler.skip=true
-```
+~~~
 

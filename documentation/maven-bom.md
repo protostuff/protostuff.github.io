@@ -14,7 +14,7 @@ To overcome such problems Maven supports [the concept of a "bill of materials" (
 You can import the `protostuff-bom` in your `<dependencyManagement>` section to
 ensure that all protostuff dependencies (both direct and **transitive**) are at the same version:
 
-```xml
+~~~xml
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -26,12 +26,12 @@ ensure that all protostuff dependencies (both direct and **transitive**) are at 
         </dependency>
     </dependencies>
 </dependencyManagement>
-```
+~~~
 
 An added benefit of using the BOM is that you no longer need to specify the `<version>` attribute
 when depending on protostuff artifacts:
 
-```xml
+~~~xml
 <dependencies>
     <dependency>
         <groupId>io.protostuff</groupId>
@@ -42,5 +42,5 @@ when depending on protostuff artifacts:
         <artifactId>protostuff-core</artifactId>
     </dependency>
 <dependencies>
-```
+~~~
 

@@ -8,7 +8,7 @@ This library allows your generated pojos, existing pojos and existing protoc-gen
 Take a look at the example:
 
 `foo.proto`
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -24,7 +24,7 @@ message Person {
   }
   optional Gender gender = 4;
 }
-```
+~~~
 
 # java\_bean #
 
@@ -33,54 +33,54 @@ See [compiler options](CompilerOptions#java_bean.md) for more details.
   * simple pojos with a self-contained [schema](Schema.md).
 
 ### Serialization ###
-```
+~~~
 Person person = new Person(1);
 person.setName("John Doe");
 person.setMotto("Speed kills!");
 person.setGender(Gender.MALE);
-```
+~~~
 
 **writing to `java.io.OutputStream`**
-```
+~~~
 boolean numeric;
 OutputStream out;
 JsonIOUtil.writeTo(out, person, Person.getSchema(), numeric);
-```
+~~~
 
 **writing to `java.io.Writer`**
-```
+~~~
 boolean numeric;
 Writer writer;
 JsonIOUtil.writeTo(writer, person, Person.getSchema(), numeric);
-```
+~~~
 
 If the boolean arg "numeric" is true, the output would look like:
-```
+~~~
     {
     "1":1,
     "2":"John Doe",
     "3":"Speed kills!",
     "4":1
     }
-```
+~~~
 
 ### Deserialization ###
 
 **merging from `java.io.InputStream`**
-```
+~~~
 Person person = new Person();
 boolean numeric;
 InputStream in;
 JsonIOUtil.mergeFrom(in, person, Person.getSchema(), numeric);
-```
+~~~
 
 **merging from `java.io.Reader`**
-```
+~~~
 Person person = new Person();
 boolean numeric;
 Reader reader;
 JsonIOUtil.mergeFrom(reader, person, Person.getSchema(), numeric);
-```
+~~~
 
 # java\_v2protoc\_schema #
 
@@ -89,7 +89,7 @@ Generated code via **protostuff-compiler**.  See [compiler options](CompilerOpti
   * allows the existing protoc-generated code to be efficiently serialized to json.
 
 The generated code from c++ protoc would look like:
-```
+~~~
 public final class Foo 
 {
     public static final class Person extends com.google.protobuf.GeneratedMessageLite 
@@ -104,10 +104,10 @@ public final class Foo
         }
     }
 }
-```
+~~~
 
 The generated [schema](Schema.md) by protostuff-compiler would look like:
-```
+~~~
 public final class SchemaFoo 
 {
     public static final class Person 
@@ -126,57 +126,57 @@ public final class SchemaFoo
         }
     }
 }
-```
+~~~
 
 It contains the ser/deser logic and also allows the fields to be written using its name or number.
 
 ### Serialization ###
-```
+~~~
 Person person = Person.newBuilder()
     .setName("John Doe")
     .setMotto("Speed kills!")
     .setGender(Gender.MALE)
     .build();
-```
+~~~
 
 **writing to `java.io.OutputStream`**
-```
+~~~
 boolean numeric;
 OutputStream out;
 JsonIOUtil.writeTo(out, person, SchemaFoo.Person.WRITE, numeric);
-```
+~~~
 
 **writing to `java.io.Writer`**
-```
+~~~
 boolean numeric;
 Writer writer;
 JsonIOUtil.writeTo(writer, person, SchemaFoo.Person.WRITE, numeric);
-```
+~~~
 
 If the boolean arg "numeric" is true, the output would look like:
-```
+~~~
     {
     "1":1,
     "2":"John Doe",
     "3":"Speed kills!",
     "4":1
     }
-```
+~~~
 
 ### Deserialization ###
 
 **merging from `java.io.InputStream`**
-```
+~~~
 Person.Builder person = Person.newBuilder();
 boolean numeric;
 InputStream in;
 JsonIOUtil.mergeFrom(in, person, SchemaFoo.Person.MERGE, numeric);
-```
+~~~
 
 **merging from `java.io.Reader`**
-```
+~~~
 Person.Builder person = Person.newBuilder();
 boolean numeric;
 Reader reader;
 JsonIOUtil.mergeFrom(reader, person, SchemaFoo.Person.MERGE, numeric);
-```
+~~~

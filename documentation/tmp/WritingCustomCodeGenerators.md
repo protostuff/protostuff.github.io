@@ -12,13 +12,13 @@ You simply invoke the compiler and supply your .stg resource as the "output".
 
 
 `protostuff.properties`
-```
+~~~
    modules = foo
    foo.source = path/to/your/foo.proto
    foo.output = path/to/your/foo.java.stg
    foo.outputDir = generated
    foo.options = some_key,key:value,another_key
-```
+~~~
 
 To test it out, try supplying http://protostuff.googlecode.com/files/protodoc.html.stg as the output.
 
@@ -36,7 +36,7 @@ The ".java" in "foo.java.stg" indicates the output target of your custom code ge
 
 `foo.java.stg`
 
-```
+~~~
 
 // means you extend the base template (inherit its templates for this group to call)
 // this mechanism enables us to maximize code re-use
@@ -131,7 +131,7 @@ public int getNumber()
 }
 >>
 
-```
+~~~
 
 If the rule "proto\_block" is defined, the compiler will supply `[proto,module,options]` as the args.
 

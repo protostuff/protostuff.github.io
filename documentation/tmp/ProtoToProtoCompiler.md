@@ -28,7 +28,7 @@ by B that should be extended by C, this is not possible right now._
 
 # Sample #
 
-```
+~~~
     @Extend(by = ItemBase)
     message Item 
     {
@@ -44,11 +44,11 @@ by B that should be extended by C, this is not possible right now._
         @Test(v = 1, a = "bbb")
         optional string name = 2;
     }
-```
+~~~
 
 the compilation result will be looked like:
 
-```
+~~~
     // @Extend(by = ItemBase)
     message Item 
     {
@@ -67,14 +67,14 @@ the compilation result will be looked like:
         @Test(v = 1, a = "bbb")
         optional string name = 2;
     }   
-```
+~~~
 
 as you can see, fields id's in extendable message should not intersect with
 fields id's in extender message.
 
 # Sample 2 #
 
-```
+~~~
     message Item 
     {
         required int32 id = 1;
@@ -95,4 +95,4 @@ fields id's in extender message.
     message Pet 
     {        
     }
-```
+~~~

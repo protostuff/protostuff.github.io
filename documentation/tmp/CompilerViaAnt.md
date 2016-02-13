@@ -8,7 +8,7 @@ Currently there are 3 outputs:
   * java\_v2protoc\_schema
 
 `foo.proto`
-```
+~~~
 package foo;
 
 option optimize_for = LITE_RUNTIME;
@@ -24,10 +24,10 @@ message Person {
   }
   optional Gender gender = 4;
 }
-```
+~~~
 
 ## `protostuff.properties` ##
-```
+~~~
 modules = foo
 
 foo.source = foo.proto
@@ -36,11 +36,11 @@ foo.output = java_bean
 foo.outputDir = .
 foo.encoding = UTF-8
 foo.options = key:value,generate_field_map,separate_schema
-```
+~~~
 
 ## `build.xml` ##
 
-```
+~~~
 <project name="foo" basedir=".">
 
 <target name="compileproto">
@@ -53,9 +53,9 @@ foo.options = key:value,generate_field_map,separate_schema
 </target>
 
 </project>
-```
+~~~
 
 ## `Execute:` ##
-```
+~~~
 $ ant compileproto
-```
+~~~

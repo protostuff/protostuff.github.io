@@ -17,7 +17,7 @@ Limitations:
 
  Example:
 
- ```proto
+ ~~~proto
 message ClubFounder {
     optional string name = 1;
     optional Club club = 2;
@@ -33,21 +33,21 @@ message Student {
     optional string name = 1;
     repeated Club club = 2;
 }
-```
+~~~
 
 You cannot directly serialize Club since it can potentially have a reference to itself.
 
 The solution is to wrap the target message.
 
-```proto
+~~~proto
 message ClubWrapper {
     optional Club club = 1;
 }
-```
+~~~
 
 On the other hand, you can serialize ClubFounder.
 
-```java
+~~~java
 Schema<ClubFounder> schema = RuntimeSchema.getSchema(ClubFounder.class);
 ClubFounder founder = new ClubFounder();
 
@@ -59,26 +59,26 @@ ClubFounder cf = new ClubFounder();
 GraphIOUtil.mergeFrom(data, cf, schema);
 
 // check if cf retains the graph
-```
+~~~
 
 For a more complex example, take a look at [PolymorphicRuntimeGraphTest.java](http://code.google.com/p/protostuff/source/browse/trunk/protostuff-runtime/src/test/java/com/dyuproject/protostuff/runtime/PolymorphicRuntimeGraphTest.java)
 
 Note that if you have collection fields that can potentially be cyclic, you need to enable the system property below:
 
-```
+~~~
 -Dprotostuff.runtime.collection_schema_on_repeated_fields=true
-```
+~~~
 
 E.g
 
-```java
+~~~java
 class Foo
 {
     List<Bar> barList;
     List<Baz> anotherBarList; // if this points to barList, it will be cyclic.
 
 }
-```
+~~~
 
 Doing so treats the collection field as a standalone message (which is handled on cyclic graph serialization).
 

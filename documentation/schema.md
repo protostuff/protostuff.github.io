@@ -21,7 +21,7 @@ Say for example, here is an exising domain object.
 
 `User.java`
 
-```java
+~~~java
 public class User
 {
     
@@ -42,13 +42,13 @@ public class User
     
     // getters and setters
 }
-```
+~~~
 
 Here's what the hand-written schema would look like:
 
 `UserSchema.java`
 
-```java
+~~~java
 public class UserSchema implements Schema<User>
 {
 
@@ -163,4 +163,4 @@ public class UserSchema implements Schema<User>
         fieldMap.put("friends", 4);
     }
 }
-```
+~~~
