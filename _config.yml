@@ -1,7 +1,7 @@
 # Jekyll configuration
 
 name: protostuff 
-description: java serialization library, proto compiler, code generator, protobuf utilities, gwt overlays, j2me, android and kindle interoperability
+description: java serialization library, proto compiler, code generator, protobuf utilities
 
 # url is currently only used only for the RSS feed in feed.xml
 url: http://www.protostuff.io
@@ -27,7 +27,7 @@ comments: true
 permalink: /:title
 #paginate: 3
 
-highlighter: pygments
+highlighter: rouge
 markdown: redcarpet
 redcarpet:
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
