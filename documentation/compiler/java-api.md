@@ -159,8 +159,8 @@ map<int32, int32> weight = 1;
 
 The compiler will generate the following accessor methods:
 
-* `Map<Integer, Integer> getWeightMap();`: Returns an unmodifiable `Map`.
-* `Integer getWeight(Integer key);`: Returns a value mapped to given key if it
+* `Map<Integer, Integer> getWeightMap()`: Returns an unmodifiable `Map`.
+* `Integer getWeight(Integer key)`: Returns a value mapped to given key if it
   exists. If mapping does not exist than returns `null`.
 
 The compiler will generate the following methods for constructing new message:
