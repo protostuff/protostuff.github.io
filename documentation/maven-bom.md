@@ -9,8 +9,9 @@ For example, you may find that a third-party library pulls in a transitive depen
 an older release. If you forget to explicitly declare a direct dependency yourself, all
 sorts of unexpected issues can arise.
 
-To overcome such problems Maven supports [the concept of a "bill of materials" (BOM) dependency]
-(http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html).
+To overcome such problems Maven supports [the concept of a "bill of materials" 
+(BOM) dependency][maven dependency mechanism].
+
 You can import the `protostuff-bom` in your `<dependencyManagement>` section to
 ensure that all protostuff dependencies (both direct and **transitive**) are at the same version:
 
@@ -44,3 +45,4 @@ when depending on protostuff artifacts:
 <dependencies>
 ~~~
 
+[maven dependency mechanism]: http://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html
