@@ -1,1 +1,1 @@
-Go to website: http://www.protostuff.io/
+Go to https://protostuff.github.io/
