@@ -16,13 +16,13 @@
 <span class="token comment">// To exclude certain fields, use java's transient keyword</span>
 <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Bar</span>
 <span class="token punctuation">{</span>
-  <span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
-  <span class="token keyword">int</span> baz<span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+    <span class="token keyword">int</span> baz<span class="token punctuation">;</span>
 
-  <span class="token comment">// alias is available since 1.0.7</span>
-  <span class="token comment">// useful for json/xml/yaml where you can override the field names</span>
-  <span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> alias <span class="token operator">=</span> <span class="token string">"f"</span><span class="token punctuation">)</span>
-  <span class="token keyword">double</span> foo<span class="token punctuation">;</span>
+    <span class="token comment">// alias is available since 1.0.7</span>
+    <span class="token comment">// useful for json/xml/yaml where you can override the field names</span>
+    <span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> alias <span class="token operator">=</span> <span class="token string">"f"</span><span class="token punctuation">)</span>
+    <span class="token keyword">double</span> foo<span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment">// with this approach, versioning with inheritance is now fully supported.</span>
