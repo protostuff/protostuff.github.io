@@ -1,0 +1,148 @@
+<!DOCTYPE html><html><head><title>protostuff docs</title><meta charset="utf-8"/><meta http-equiv="content-type" content="text/html;charset=utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="stylesheet" href="../assets/css/site.css"/></head><body><div class="absolute show-md"><div class="dropdown"><button class="btn btn-link btn-sm dropdown-toggle circle shadow-gray"> # </button><div class="menu hover"><div class="menu-item"><ul class="nav"><li class="nav-item active"><a href="./">Docs</a><ul class="nav"><li class="nav-item"><a href="protostuff-runtime/">protostuff-runtime</a><ul class="nav"><li class="nav-item"><a href="protostuff-runtime/delegate/">Delegate</a></li></ul></li></ul></li></ul></div></div></div></div><div class="container"><header class="columns col-gapless"><div class="column col-8 col-mx-auto col-xl-6 col-md-5 col-sm-6 col-xs-8"><nav><a class="img" href="../"><img src="/assets/images/protostuff.png"/></a><a class="img" href="https://github.com/protostuff/protostuff" target="_blank" rel="noreferrer"><img src="/assets/images/gh.png"/></a><a class="chip active" href="./">Docs</a></nav></div><div class="column col-12 show-md"><ul class="breadcrumb"><li class="breadcrumb-item"><span>Docs</span></li></ul></div></header><main class="columns col-gapless"><div class="column col-2 col-xl-3 hide-md sidebar"><ul class="nav"><li class="nav-item active"><a href="./">Docs</a><ul class="nav"><li class="nav-item"><a href="protostuff-runtime/">protostuff-runtime</a><ul class="nav"><li class="nav-item"><a href="protostuff-runtime/delegate/">Delegate</a></li></ul></li></ul></li></ul></div><div class="column col-8 col-mr-auto col-xl-6 col-md-12 main"><p>The goal of protostuff is to generate a <strong>schema</strong> whether at compile-time or <a href="protostuff-runtime/">runtime</a> and use that for reading/writing to <strong>various formats</strong> via the provided IO libs.</p>
+<h2 id="-schema-"><strong>Schema</strong></h2>
+<p>A class that encapsulates:</p>
+<ul>
+<li>the serialization logic of an object</li>
+<li>the deserialization logic of an object</li>
+<li>the validation of an object’s required fields</li>
+<li>the mapping of an object’s field names to field numbers</li>
+<li>the instantiation of the object.</li>
+</ul>
+<p>For existing objects, use <a href="protostuff-runtime/">protostuff-runtime</a> which uses reflection.</p>
+<p>If you prefer to manually write the schema (to validate some fields), take a look at the example pojo below and it&#39;s corresponding schema.</p>
+<p><strong>User.java</strong></p>
+<pre class="lang language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">User</span>
+<span class="token punctuation">{</span>
+    String firstName<span class="token punctuation">;</span>
+    String lastName<span class="token punctuation">;</span>
+    String email<span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span>User<span class="token operator">></span> friends<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token function">User</span><span class="token punctuation">(</span>String email<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>email <span class="token operator">=</span> email<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// getters and setters</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This is how your hand-written schema would look like:</p>
+<p><strong>UserSchema.java</strong></p>
+<pre class="lang language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UserSchema</span> <span class="token keyword">implements</span> <span class="token class-name">Schema</span><span class="token operator">&lt;</span>User<span class="token operator">></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">boolean</span> <span class="token function">isInitialized</span><span class="token punctuation">(</span>User user<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> user<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">mergeFrom</span><span class="token punctuation">(</span>Input input<span class="token punctuation">,</span> User user<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+    <span class="token punctuation">{</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> number <span class="token operator">=</span> input<span class="token punctuation">.</span><span class="token function">readFieldNumber</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">switch</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token number">0</span><span class="token operator">:</span>
+                    <span class="token keyword">return</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+                    user<span class="token punctuation">.</span><span class="token function">setEmail</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+                    user<span class="token punctuation">.</span><span class="token function">setFirstName</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+                    user<span class="token punctuation">.</span><span class="token function">setLastName</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">readString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>message<span class="token punctuation">.</span>friends <span class="token operator">==</span> null<span class="token punctuation">)</span>
+                        message<span class="token punctuation">.</span>friends <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>User<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    message<span class="token punctuation">.</span>friends<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>input<span class="token punctuation">.</span><span class="token function">mergeObject</span><span class="token punctuation">(</span>null<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token operator">:</span>
+                    input<span class="token punctuation">.</span><span class="token function">handleUnknownField</span><span class="token punctuation">(</span>number<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">writeTo</span><span class="token punctuation">(</span>Output output<span class="token punctuation">,</span> User user<span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException
+    <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null<span class="token punctuation">)</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token class-name">UninitializedMessageException</span><span class="token punctuation">(</span>user<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        output<span class="token punctuation">.</span><span class="token function">writeString</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">getEmail</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getFirstName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span>
+            output<span class="token punctuation">.</span><span class="token function">writeString</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">getFirstName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>user<span class="token punctuation">.</span><span class="token function">getLastName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span>
+            output<span class="token punctuation">.</span><span class="token function">writeString</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> user<span class="token punctuation">.</span><span class="token function">getLastName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>message<span class="token punctuation">.</span>friends <span class="token operator">!=</span> null<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span>User friend <span class="token operator">:</span> message<span class="token punctuation">.</span>friends<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>friend <span class="token operator">!=</span> null<span class="token punctuation">)</span>
+                    output<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> friend<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> User <span class="token function">newMessage</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">User</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> Class<span class="token operator">&lt;</span>User<span class="token operator">></span> <span class="token function">typeClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> User<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> String <span class="token function">messageName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> User<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getSimpleName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> String <span class="token function">messageFullName</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> User<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// the mapping between the field names to the field numbers.</span>
+
+    <span class="token keyword">public</span> String <span class="token function">getFieldName</span><span class="token punctuation">(</span><span class="token keyword">int</span> number<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">switch</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">case</span> <span class="token number">1</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"email"</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">2</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"firstName"</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">3</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"lastName"</span><span class="token punctuation">;</span>
+            <span class="token keyword">case</span> <span class="token number">4</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> <span class="token string">"friends"</span><span class="token punctuation">;</span>
+            <span class="token keyword">default</span><span class="token operator">:</span>
+                <span class="token keyword">return</span> null<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">getFieldNumber</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        Integer number <span class="token operator">=</span> fieldMap<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> number <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token number">0</span> <span class="token operator">:</span> number<span class="token punctuation">.</span><span class="token function">intValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> HashMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Integer<span class="token operator">></span> fieldMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Integer<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token keyword">static</span>
+    <span class="token punctuation">{</span>
+        fieldMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"email"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        fieldMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"firstName"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        fieldMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"lastName"</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        fieldMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"friends"</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div></main></div><footer><p>Copyright © 2018 <a href="https://github.com/dyu">David</a> <a href="https://gitlab.com/dyu">Yu</a></p>
+</footer></body></html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html><html><head><title>protostuff docs - protostuff-runtime</title><meta charset="utf-8"/><meta http-equiv="content-type" content="text/html;charset=utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="stylesheet" href="../../assets/css/site.css"/></head><body><div class="absolute show-md"><div class="dropdown"><button class="btn btn-link btn-sm dropdown-toggle circle shadow-gray"> # </button><div class="menu hover"><div class="menu-item"><ul class="nav"><li class="nav-item"><a href="../">Docs</a><ul class="nav"><li class="nav-item active"><a href="./">protostuff-runtime</a><ul class="nav"><li class="nav-item"><a href="delegate/">Delegate</a></li></ul></li></ul></li></ul></div></div></div></div><div class="container"><header class="columns col-gapless"><div class="column col-8 col-mx-auto col-xl-6 col-md-5 col-sm-6 col-xs-8"><nav><a class="img" href="../../"><img src="/assets/images/protostuff.png"/></a><a class="img" href="https://github.com/protostuff/protostuff" target="_blank" rel="noreferrer"><img src="/assets/images/gh.png"/></a><a class="chip active" href="../">Docs</a></nav></div><div class="column col-12 show-md"><ul class="breadcrumb"><li class="breadcrumb-item"><a href="../">Docs</a></li><li class="breadcrumb-item"><span>protostuff-runtime</span></li></ul></div></header><main class="columns col-gapless"><div class="column col-2 col-xl-3 hide-md sidebar"><ul class="nav"><li class="nav-item"><a href="../">Docs</a><ul class="nav"><li class="nav-item active"><a href="./">protostuff-runtime</a><ul class="nav"><li class="nav-item"><a href="delegate/">Delegate</a></li></ul></li></ul></li></ul></div><div class="column col-8 col-mr-auto col-xl-6 col-md-12 main"><p>The <strong>protostuff-runtime</strong> module allows your existing pojos to be serialized to different formats.</p>
+<p>For people who prefer not to have their messages code-generated from proto files, this fits your bill.</p>
+<p>The preliminary modules needed:</p>
+<ul>
+<li><strong>protostuff-api</strong></li>
+<li><strong>protostuff-collectionschema</strong></li>
+<li><strong>protostuff-runtime</strong></li>
+</ul>
+<p>The advantages of using proto files is that you have explicit control of fields and their corresponding numbers (which is useful for schema evolution, e.g forward-backward compatibility).</p>
+<p>With this module, the field’s number is ordered according to their declaration in the pojo (top to bottom).</p>
+<p>Note that the order is not guaranteed on some (non-sun) vms (especially dalvik).</p>
+<p>Sun jdk6 or higher is recommended for guaranteed ordering.</p>
+<p>As of 1.0.5, <code>@Tag</code> annotations can be used on fields to have explicit control of the field numbers</p>
+<pre class="lang language-java"><code><span class="token comment">// all or nothing.  </span>
+<span class="token comment">// Either you annotate all fields or you don't annotate at all (applies to the relevant class only).</span>
+<span class="token comment">// To exclude certain fields, use java's transient keyword</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Bar</span>
+<span class="token punctuation">{</span>
+  <span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span>
+  <span class="token keyword">int</span> baz<span class="token punctuation">;</span>
+
+  <span class="token comment">// alias is available since 1.0.7</span>
+  <span class="token comment">// useful for json/xml/yaml where you can override the field names</span>
+  <span class="token annotation punctuation">@Tag</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token number">15</span><span class="token punctuation">,</span> alias <span class="token operator">=</span> <span class="token string">"f"</span><span class="token punctuation">)</span>
+  <span class="token keyword">double</span> foo<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// with this approach, versioning with inheritance is now fully supported.</span>
+<span class="token comment">// you simply reserve x-y (range) numbers for the fields of the parent class.</span>
+<span class="token comment">// internally it will be detected when you make mistakes tagging with the same number.</span>
+</code></pre>
+<p><strong>Note that if you have non-static inner classes and want to use <code>@Tag</code> annotations, mark that class as static instead.</strong></p>
+<p>Without <code>@Tag</code> annotations, forward-backward compatibility is still supported via “append-only” schema evolution.</p>
+<ul>
+<li>To add new fields, append the field in the declaration</li>
+<li>To remove existing fields, annotate with<code>@Deprecated</code></li>
+<li>To exclude fields from being serialized, use the java keyword: <code>transient</code></li>
+</ul>
+<p>Here’s an example:</p>
+<pre class="lang language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Entity</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> id<span class="token punctuation">;</span>
+
+    String name<span class="token punctuation">;</span>
+
+    <span class="token annotation punctuation">@Deprecated</span>
+    String alias<span class="token punctuation">;</span>
+
+    <span class="token keyword">long</span> timestamp<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Schema evolution scenario:</p>
+<ul>
+<li>v1: 3 initial fields (id=1, name=2, alias=3)</li>
+<li>v2: Added a new field (timestamp=4)</li>
+<li>v3: Removed the “alias” field</li>
+</ul>
+<p>With v3, the field mapping would be (id=1, name=2, timestamp=4).
+When we encounter the alias field, it is ignored by the deserializer.</p>
+<p>The field mapping is still intact despite schema evolution, which makes it forward-backward compatible to different versions.</p>
+<p><strong>3 possible types of <code>Schema</code></strong></p>
+<p>Unlike a static hand-written/code-generated schema, there are 3 possible types of schema that can be used at runtime.</p>
+<p>Below are the types ordered according to their efficiency and performance at runtime.</p>
+<h2 id="-static-schema-"><strong>Static Schema</strong></h2>
+<p>Used when the declared field is a concrete type. Compact since no extra metadata included on serialization</p>
+<pre class="lang language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span> SortOrder
+<span class="token punctuation">{</span>
+    ASCENDING<span class="token punctuation">,</span>
+    DESCENDING<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Bar</span>
+<span class="token punctuation">{</span>
+    Entity entity<span class="token punctuation">;</span> <span class="token comment">// the example above</span>
+    List<span class="token operator">&lt;</span>Long<span class="token operator">></span> scalarList<span class="token punctuation">;</span> <span class="token comment">// any scalar type</span>
+    List<span class="token operator">&lt;</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> bytesList<span class="token punctuation">;</span> <span class="token comment">// byte arrays are treated as scalar fields (use >= 1.0.4)</span>
+    List<span class="token operator">&lt;</span>Entity<span class="token operator">></span> entityList<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> bytesMapWithScalarKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Entity<span class="token operator">></span> entityMapWithScalarKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>SortOrder<span class="token punctuation">,</span>Entity<span class="token operator">></span> entityMapWithEnumKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span>Date<span class="token operator">></span> entityMapWithPojoKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span>Entity<span class="token operator">></span> entityMap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="-derivativeschema-"><strong>DerivativeSchema</strong></h2>
+<p>Used when the declared field is an abstract class. Less compact since the type metadata is written (field number: <code>127</code>) on serialization.</p>
+<pre class="lang language-java"><code><span class="token keyword">public</span> <span class="token keyword">abstract</span> <span class="token keyword">class</span> <span class="token class-name">Instrument</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">BassGuitar</span> <span class="token keyword">extends</span> <span class="token class-name">Instrument</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Piano</span> <span class="token keyword">extends</span> <span class="token class-name">Instrument</span>
+<span class="token punctuation">{</span>
+    <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// DerivativeSchema will be used on the fields below</span>
+<span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Baz</span>
+<span class="token punctuation">{</span>
+    Instrument instrument<span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span>Instrument<span class="token operator">></span> instrumentList<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Instrument<span class="token operator">></span> instrumentMapWithScalarKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>SortOrder<span class="token punctuation">,</span>Instrument<span class="token operator">></span> instrumentMapWithEnumKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>BassGuitar<span class="token punctuation">,</span>Instrument<span class="token operator">></span> instrumentMapWithPojoKeys<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>Instrument<span class="token punctuation">,</span>Instrument<span class="token operator">></span> instrumentMap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>IMPORTANT</strong></p>
+<p>If your object heirarchy involves a concrete class subclassing another concrete class (not using abstract classes), set: <code>-Dprotostuff.runtime.morph_non_final_pojos=true</code></p>
+<p>With that property set, <code>DerivativeSchema</code> will be used on non-final pojos (concrete types) similar to abstract classes.</p>
+<p>For example:</p>
+<pre class="lang language-java"><code><span class="token keyword">class</span> <span class="token class-name">Base</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> id <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Child</span> <span class="token keyword">extends</span> <span class="token class-name">Base</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> status <span class="token operator">=</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">class</span> <span class="token class-name">Pojo</span>
+<span class="token punctuation">{</span>
+    Base b <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Child</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// If you serialize Pojo, Child's "status" field will not be </span>
+<span class="token comment">// serialized if the system property is not set.</span>
+
+<span class="token comment">// With that in mind, all pojos that aren't marked final will </span>
+<span class="token comment">// have an overhead of extra type metadata on serialization.</span>
+
+<span class="token comment">// To ensure that no extra type metadata be will written, mark </span>
+<span class="token comment">// your pojos final when you know there are no subclasses.</span>
+</code></pre>
+<h2 id="-objectschema-dynamic-"><strong>ObjectSchema</strong> (dynamic)</h2>
+<p>Used when the type of the declared fields:</p>
+<ul>
+<li>are <code>java.lang.Object</code></li>
+<li>are interfaces</li>
+<li>are arrays</li>
+<li>are collections but did not define the generics</li>
+<li>are too complex</li>
+</ul>
+<p>All necessary metadata is included on serialization to be able to deserialize the message correctly.</p>
+<pre class="lang language-java"><code><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">Dynamic</span>
+<span class="token punctuation">{</span>
+    Object entity<span class="token punctuation">;</span>
+
+    Object<span class="token punctuation">[</span><span class="token punctuation">]</span> objectArray<span class="token punctuation">;</span>
+    <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> primitiveArray<span class="token punctuation">;</span>
+    Integer<span class="token punctuation">[</span><span class="token punctuation">]</span> boxedArray<span class="token punctuation">;</span>
+    Entity<span class="token punctuation">[</span><span class="token punctuation">]</span> entityArray<span class="token punctuation">;</span>
+    IEntity<span class="token punctuation">[</span><span class="token punctuation">]</span> ientityArray<span class="token punctuation">;</span>
+
+    List noGenericsList<span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span> uselessGenericsList<span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span>Object<span class="token operator">></span> objectList<span class="token punctuation">;</span>
+    List<span class="token operator">&lt;</span><span class="token keyword">long</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> withArrayList<span class="token punctuation">;</span>
+
+    Map noGenericsMap<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> uselessGenericsMap<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>Object<span class="token operator">></span> withObjectMap<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token punctuation">,</span>SortOrder<span class="token operator">></span> dynamicKeyMap<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>Entity<span class="token punctuation">,</span><span class="token operator">?</span><span class="token operator">></span> dynamicValueMap<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>Integer<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">></span> withArrayMap<span class="token punctuation">;</span>
+
+    <span class="token comment">// and complex types</span>
+    List<span class="token operator">&lt;</span>List<span class="token operator">&lt;</span>String<span class="token operator">>></span> aListWithAList<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>String<span class="token punctuation">,</span>List<span class="token operator">&lt;</span>SortOrder<span class="token operator">>></span> complexMap<span class="token punctuation">;</span>
+    Map<span class="token operator">&lt;</span>Set<span class="token operator">&lt;</span>Entity<span class="token operator">></span><span class="token punctuation">,</span>Long<span class="token operator">></span> anotherComplexMap<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="-updating-fields-"><strong>Updating fields</strong></h3>
+<p>With the information above, be sure that you update your fields carefully.</p>
+<p>For example, do not add/remove generics when you already have existing data because the deserialization will fail.</p>
+<p>For scalar fields:</p>
+<ul>
+<li><code>int</code> can be updated to <code>long</code> (and vice versa), compatible with all suported formats</li>
+<li><code>String</code> can be updated to <code>byte[]</code> or <code>ByteString</code> (and vice versa), not compatible with text formats (e.g json/xml/yaml)</li>
+</ul>
+<pre class="lang language-java"><code><span class="token keyword">class</span> <span class="token class-name">Example</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">int</span> i<span class="token punctuation">;</span>
+    <span class="token keyword">long</span> l<span class="token punctuation">;</span>
+    Integer i2<span class="token punctuation">;</span>
+    Long l2<span class="token punctuation">;</span>
+    String s<span class="token punctuation">;</span>
+    <span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> b<span class="token punctuation">;</span>
+    ByteString bs<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="-performance-guidelines-"><strong>Performance guidelines</strong></h3>
+<p>As much as possible, use the concrete type when declaring a field.</p>
+<p>For polymorhic datasets, <strong>prefer abstract classes</strong> vs interfaces.</p>
+<p>Use <code>ExplicitIdStrategy</code> to write the type metadata as int (ser/deser will be faster and the serialized size will be smaller).</p>
+<p>Register your concrete classes at startup via <code>ExplicitIdStrategy.Registry</code>.</p>
+</div></main></div><footer><p>Copyright © 2018 <a href="https://github.com/dyu">David</a> <a href="https://gitlab.com/dyu">Yu</a></p>
+</footer></body></html>
